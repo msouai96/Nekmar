@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEKMAR | Ultrapremium Holistic Pet Nutrition — Official Partner Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Theme Palette Custom Properties */
+        :root,
+        [data-theme="midnight-emerald"] {
+            --bg-page: #FAF8F5;
+            --bg-surface: #FFFFFF;
+            --bg-muted: #F4EFE6;
+            --bg-subtle: #E8DFD1;
+            --bg-hero: #12291E;
+            --bg-hero-elevated: #1B3B2B;
+            --bg-hero-hover: #244A36;
+            --text-primary: #1C1C1C;
+            --text-secondary: #262626;
+            --text-muted: #57534E;
+            --text-inverse: #FAF8F5;
+            --text-inverse-muted: #E8DFD1;
+            --accent-primary: #1B3B2B;
+            --accent-primary-hover: #12291E;
+            --accent-secondary: #C5A059;
+            --accent-secondary-hover: #D4B26A;
+            --accent-secondary-text: #A8843E;
+            --border-subtle: #E8DFD1;
+            --border-accent: rgba(197, 160, 89, 0.42);
+            --scrollbar-thumb: #C5A059;
+            --shadow-card: 0 12px 32px -8px rgba(27, 59, 43, 0.08);
+            --shadow-card-hover: 0 20px 40px -12px rgba(27, 59, 43, 0.16);
+        }
+
+        [data-theme="botanical-sage"] {
+            --bg-page: #F7F9F5;
+            --bg-surface: #FFFFFF;
+            --bg-muted: #ECF1E8;
+            --bg-subtle: #DCE5D6;
+            --bg-hero: #23382B;
+            --bg-hero-elevated: #314D3C;
+            --bg-hero-hover: #3F614C;
+            --text-primary: #1A241E;
+            --text-secondary: #2B3A31;
+            --text-muted: #55665C;
+            --text-inverse: #F7F9F5;
+            --text-inverse-muted: #DCE5D6;
+            --accent-primary: #3B5E49;
+            --accent-primary-hover: #23382B;
+            --accent-secondary: #8FA876;
+            --accent-secondary-hover: #A3BC8B;
+            --accent-secondary-text: #4A6B42;
+            --border-subtle: #DCE5D6;
+            --border-accent: rgba(143, 168, 118, 0.48);
+            --scrollbar-thumb: #5A7D65;
+            --shadow-card: 0 12px 32px -8px rgba(35, 56, 43, 0.08);
+            --shadow-card-hover: 0 20px 40px -12px rgba(35, 56, 43, 0.15);
+        }
+
+        [data-theme="terracotta-espresso"] {
+            --bg-page: #FBF7F4;
+            --bg-surface: #FFFFFF;
+            --bg-muted: #F3EAE3;
+            --bg-subtle: #E5D4C7;
+            --bg-hero: #261914;
+            --bg-hero-elevated: #3A261E;
+            --bg-hero-hover: #4E3429;
+            --text-primary: #211612;
+            --text-secondary: #36241D;
+            --text-muted: #69544B;
+            --text-inverse: #FBF7F4;
+            --text-inverse-muted: #E5D4C7;
+            --accent-primary: #9E472A;
+            --accent-primary-hover: #7D351E;
+            --accent-secondary: #D49A6A;
+            --accent-secondary-hover: #E2AE82;
+            --accent-secondary-text: #8F4226;
+            --border-subtle: #E5D4C7;
+            --border-accent: rgba(212, 154, 106, 0.45);
+            --scrollbar-thumb: #9E472A;
+            --shadow-card: 0 12px 32px -8px rgba(38, 25, 20, 0.09);
+            --shadow-card-hover: 0 20px 40px -12px rgba(38, 25, 20, 0.17);
+        }
+
+        .font-serif { font-family: "Cormorant Garamond", Georgia, serif; }
+        .font-sans { font-family: "Inter", system-ui, sans-serif; }
+
+        /* Semantic Utility Classes Driven by Active Theme */
+        .t-page { background-color: var(--bg-page); color: var(--text-primary); }
+        .t-surface { background-color: var(--bg-surface); color: var(--text-primary); }
+        .t-muted { background-color: var(--bg-muted); color: var(--text-primary); }
+        .t-subtle { background-color: var(--bg-subtle); color: var(--text-primary); }
+        .t-hero { background-color: var(--bg-hero); color: var(--text-inverse); }
+        .t-hero-elevated { background-color: var(--bg-hero-elevated); color: var(--text-inverse); }
+        .t-hero-hover:hover { background-color: var(--bg-hero-hover); }
+        .t-hero-gradient {
+            background-image: linear-gradient(to right, var(--bg-hero), var(--bg-hero-elevated));
+            color: var(--text-inverse);
+        }
+        .t-hero-card-gradient {
+            background-image: linear-gradient(to bottom right, var(--bg-hero-elevated), var(--bg-hero));
+            color: var(--text-inverse);
+        }
+
+        .t-text-primary { color: var(--text-primary); }
+        .t-text-secondary { color: var(--text-secondary); }
+        .t-text-muted { color: var(--text-muted); }
+        .t-text-inverse { color: var(--text-inverse); }
+        .t-text-inverse-muted { color: var(--text-inverse-muted); }
+        .t-text-accent { color: var(--accent-secondary-text); }
+        .t-text-gold { color: var(--accent-secondary); }
+        .t-text-brand { color: var(--accent-primary); }
+
+        .t-border { border-color: var(--border-subtle); }
+        .t-border-accent { border-color: var(--border-accent); }
+        .t-border-brand { border-color: var(--accent-primary); }
+
+        .t-btn-brand {
+            background-color: var(--accent-primary);
+            color: var(--text-inverse);
+        }
+        .t-btn-brand:hover {
+            background-color: var(--accent-primary-hover);
+        }
+        .t-btn-gold {
+            background-color: var(--accent-secondary);
+            color: var(--text-primary);
+        }
+        .t-btn-gold:hover {
+            background-color: var(--accent-secondary-hover);
+        }
+        .t-badge-brand {
+            background-color: var(--accent-primary);
+            color: var(--text-inverse);
+        }
+        .t-badge-gold {
+            background-color: var(--accent-secondary);
+            color: var(--text-primary);
+        }
+
+        /* Custom subtle scrollbars & transitions */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-page);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 4px;
+        }
+        .bag-card-shadow {
+            box-shadow: var(--shadow-card);
+        }
+        .bag-card-shadow:hover {
+            box-shadow: var(--shadow-card-hover);
+        }
+    </style>
+</head>
+<body class="t-page font-sans antialiased selection:bg-[var(--accent-primary)] selection:text-[var(--text-inverse)] transition-colors duration-300">
+
+    <!-- Top Announcement Bar + Theme Switcher -->
+    <div class="t-hero text-xs py-2.5 px-4 border-b t-border-accent">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <div class="tracking-wide t-text-inverse-muted">
+                <span class="t-text-gold font-semibold">OFFICIAL PARTNER DISTRIBUTION</span> &bull; Free EU Express Shipping on orders over €65 &bull; <span class="italic font-serif text-sm t-text-gold">"Healthy is Happy"</span>
+            </div>
+
+            <!-- Theme Switcher Controls -->
+            <div class="flex items-center gap-1.5" role="group" aria-label="Color Palette Switcher">
+                <span class="text-[10px] uppercase tracking-widest t-text-inverse-muted mr-1">Theme:</span>
+                <button type="button" data-theme-choice="midnight-emerald" onclick="setTheme('midnight-emerald')" class="theme-switcher-btn px-2.5 py-1 rounded-full text-[11px] font-semibold border transition inline-flex items-center gap-1.5" aria-pressed="true">
+                    <span class="w-2.5 h-2.5 rounded-full" style="background: linear-gradient(135deg, #1B3B2B 50%, #C5A059 50%);"></span>
+                    <span>Midnight Emerald</span>
+                </button>
+                <button type="button" data-theme-choice="botanical-sage" onclick="setTheme('botanical-sage')" class="theme-switcher-btn px-2.5 py-1 rounded-full text-[11px] font-semibold border transition inline-flex items-center gap-1.5" aria-pressed="false">
+                    <span class="w-2.5 h-2.5 rounded-full" style="background: linear-gradient(135deg, #3B5E49 50%, #8FA876 50%);"></span>
+                    <span>Botanical Sage</span>
+                </button>
+                <button type="button" data-theme-choice="terracotta-espresso" onclick="setTheme('terracotta-espresso')" class="theme-switcher-btn px-2.5 py-1 rounded-full text-[11px] font-semibold border transition inline-flex items-center gap-1.5" aria-pressed="false">
+                    <span class="w-2.5 h-2.5 rounded-full" style="background: linear-gradient(135deg, #9E472A 50%, #D49A6A 50%);"></span>
+                    <span>Terracotta Espresso</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 t-page/95 backdrop-blur-md border-b t-border transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl t-hero-elevated flex items-center justify-center border t-border-accent shadow-sm t-hero-hover transition">
+                        <svg class="w-6 h-6 t-text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1.5 4-5 6-5 10a5 5 0 0010 0c0-4-3.5-6-5-10z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-6m0 0l-2.5-2m2.5 2l2.5-2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-wider t-text-primary block leading-none">NEKMAR</span>
+                        <span class="text-[10px] uppercase tracking-[0.22em] t-text-accent font-semibold block mt-0.5">Ultrapremium Nutrition</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium t-text-secondary">
+                    <button onclick="navigateAndFilter('dog-all')" class="hover:t-text-brand transition py-2">Dog Nutrition</button>
+                    <button onclick="navigateAndFilter('cat')" class="hover:t-text-brand transition py-2">Cat Nutrition</button>
+                    <button onclick="navigateAndFilter('supplements')" class="hover:t-text-brand transition py-2">Supplements &amp; Oils</button>
+                    <a href="#advisor" class="flex items-center gap-1.5 t-text-brand font-semibold hover:t-text-accent transition py-2">
+                        <span class="w-2 h-2 rounded-full t-badge-gold animate-pulse"></span>
+                        Health Finder Quiz
+                    </a>
+                    <button onclick="openPartnerModal()" class="t-text-secondary hover:t-text-brand transition py-2 border-b border-transparent hover:t-border-accent">Partner &amp; Wholesale</button>
+                </nav>
+
+                <!-- Action Controls -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openPartnerModal()" class="hidden sm:inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-semibold border t-border t-text-primary t-muted transition">
+                        B2B / Breeder Portal
+                    </button>
+
+                    <!-- Cart Button -->
+                    <button onclick="toggleCart(true)" aria-label="Open shopping cart" class="relative flex items-center gap-2 t-btn-brand px-4 py-2.5 rounded-xl transition shadow-sm">
+                        <svg class="w-5 h-5 t-text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span class="text-sm font-medium hidden sm:inline">Cart</span>
+                        <span id="cart-badge" class="t-badge-gold text-xs font-bold px-2 py-0.5 rounded-full min-w-[22px] text-center">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl t-text-primary t-muted">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Nav -->
+        <div id="mobile-menu" class="hidden lg:hidden t-muted border-b t-border px-4 pt-2 pb-5 space-y-2">
+            <button onclick="navigateAndFilter('dog-all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg font-medium t-text-primary hover:t-subtle">Dog Nutrition</button>
+            <button onclick="navigateAndFilter('cat'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg font-medium t-text-primary hover:t-subtle">Cat Nutrition</button>
+            <button onclick="navigateAndFilter('supplements'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg font-medium t-text-primary hover:t-subtle">Supplements &amp; Oils</button>
+            <a href="#advisor" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg font-semibold t-text-brand t-subtle">Health Finder Quiz</a>
+            <button onclick="openPartnerModal(); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg font-medium t-text-secondary hover:t-subtle">Partner &amp; Wholesale Inquiry</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden t-hero transition-colors duration-300">
+        <!-- Subtle botanical background pattern -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: radial-gradient(var(--accent-secondary) 1px, transparent 1px); background-size: 28px 28px;"></div>
+        <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full opacity-15 blur-3xl pointer-events-none" style="background-color: var(--accent-secondary);"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Copy -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full t-hero-elevated border t-border-accent t-text-gold text-xs font-semibold tracking-wider uppercase">
+                        <span>European Holistic Craftsmanship</span>
+                        <span>&bull;</span>
+                        <span>Healthy is Happy</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight t-text-inverse">
+                        Biologically Appropriate <span class="t-text-gold italic">Ultrapremium</span> Pet Nutrition.
+                    </h1>
+
+                    <p class="t-text-inverse-muted text-base sm:text-lg max-w-2xl leading-relaxed font-light">
+                        Formulated in Europe with <strong class="t-text-inverse font-semibold">50–70% animal ingredients</strong>, fresh deboned meat as the #1 ingredient, and wild medicinal herbs. Gently steam-cooked to preserve vital nutrients for vibrant longevity.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#catalog" class="px-7 py-4 rounded-xl t-btn-gold font-bold text-sm tracking-wide transition shadow-lg">
+                            Shop Best Sellers
+                        </a>
+                        <a href="#advisor" class="px-7 py-4 rounded-xl t-hero-elevated t-hero-hover t-text-inverse border t-border-accent font-semibold text-sm tracking-wide transition flex items-center gap-2">
+                            <svg class="w-4 h-4 t-text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                            Find the Right Recipe
+                        </a>
+                    </div>
+
+                    <!-- Key Value Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t t-border-accent max-w-xl">
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold t-text-gold">50–70%</p>
+                            <p class="text-xs t-text-inverse-muted mt-0.5">Animal Protein Content</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold t-text-gold">#1 Fresh</p>
+                            <p class="text-xs t-text-inverse-muted mt-0.5">Deboned Meat First</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold t-text-gold">0% GMO</p>
+                            <p class="text-xs t-text-inverse-muted mt-0.5">Medicinal Herbs Infused</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Showcase Visual -->
+                <div class="lg:col-span-5">
+                    <div class="relative t-hero-card-gradient border t-border-accent rounded-3xl p-6 sm:p-8 shadow-2xl">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-[11px] uppercase tracking-widest t-text-gold font-semibold">Signature Holistic Blend</span>
+                                <h2 class="font-serif text-2xl font-bold t-text-inverse mt-1">Grain Free &amp; Low Grain</h2>
+                            </div>
+                            <span class="px-3 py-1 rounded-full t-hero-elevated t-text-gold text-xs font-semibold border t-border-accent">EU Certified</span>
+                        </div>
+
+                        <!-- Stylized Luxury Packaging & Botanical Graphic -->
+                        <div class="t-muted rounded-2xl p-6 t-text-primary relative overflow-hidden border t-border">
+                            <div class="flex items-center justify-between border-b t-border pb-4 mb-4">
+                                <div>
+                                    <p class="text-xs font-bold tracking-widest t-text-brand uppercase">NEKMAR HOLISTIC</p>
+                                    <p class="font-serif text-xl font-bold t-text-primary">Fresh Meat + Wild Herbs</p>
+                                </div>
+                                <div class="w-12 h-12 rounded-full t-badge-brand t-text-gold flex items-center justify-center font-serif font-bold text-lg">
+                                    70%
+                                </div>
+                            </div>
+
+                            <ul class="space-y-2.5 text-xs sm:text-sm t-text-secondary">
+                                <li class="flex items-center gap-2.5">
+                                    <span class="w-5 h-5 rounded-full t-subtle t-text-brand flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span><strong>Fresh Deboned Meat</strong> (Iberico Pork, Rabbit, Horse, Lamb)</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <span class="w-5 h-5 rounded-full t-subtle t-text-brand flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span><strong>Botanical Pharmacy:</strong> Milk Thistle, Rosehip, Dandelion &amp; Yucca</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <span class="w-5 h-5 rounded-full t-subtle t-text-brand flex items-center justify-center font-bold text-xs">✓</span>
+                                    <span><strong>Gentle Steam Extrusion</strong> for 94%+ nutrient digestibility</span>
+                                </li>
+                            </ul>
+
+                            <div class="mt-5 pt-4 border-t t-border flex items-center justify-between">
+                                <span class="text-xs t-text-muted">Available in 2kg &amp; 12kg Breeder/Home Bags</span>
+                                <a href="#catalog" class="text-xs font-bold t-text-brand hover:t-text-accent underline">Explore Range &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Product Catalog -->
+    <section id="catalog" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-[0.2em] t-text-accent">Curated European Formulas</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold t-text-primary mt-1">Ultrapremium Nutrition Catalog</h2>
+                <p class="t-text-muted text-sm sm:text-base mt-2 max-w-2xl">
+                    Select your preferred bag or bottle size below to view real-time Euro pricing. Click any product card for full nutritional breakdown and herbal composition.
+                </p>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div id="filter-buttons" class="flex flex-wrap gap-2">
+                <button data-filter="all" onclick="filterProducts('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold t-btn-brand transition shadow-sm">
+                    All Formulas
+                </button>
+                <button data-filter="dog-low-grain" onclick="filterProducts('dog-low-grain')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold t-muted t-text-secondary hover:t-subtle transition">
+                    Dog - Low Grain
+                </button>
+                <button data-filter="dog-grain-free" onclick="filterProducts('dog-grain-free')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold t-muted t-text-secondary hover:t-subtle transition">
+                    Dog - Grain Free
+                </button>
+                <button data-filter="cat" onclick="filterProducts('cat')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold t-muted t-text-secondary hover:t-subtle transition">
+                    Cat Nutrition
+                </button>
+                <button data-filter="supplements" onclick="filterProducts('supplements')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold t-muted t-text-secondary hover:t-subtle transition">
+                    Oils &amp; Supplements
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Dynamically populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Interactive Pet Nutrition Advisor Widget -->
+    <section id="advisor" class="py-16 sm:py-20 t-muted border-y t-border transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="t-surface rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl border t-border">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="inline-block px-3 py-1 rounded-full t-subtle t-text-brand text-xs font-bold uppercase tracking-wider mb-2">
+                        Holistic Health Finder
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold t-text-primary">Pet Nutrition Advisor</h2>
+                    <p class="text-sm sm:text-base t-text-muted mt-2">
+                        Tell us about your companion’s profile and dietary needs to match them with the ideal Nekmar fresh-meat &amp; medicinal herb recipe.
+                    </p>
+                </div>
+
+                <!-- Quiz Selectors -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <!-- Step 1: Pet Type -->
+                    <div class="t-page p-4 rounded-2xl border t-border">
+                        <label class="block text-xs font-bold uppercase tracking-wider t-text-brand mb-2">1. Companion Species</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button type="button" onclick="setQuizState('species', 'dog')" id="quiz-species-dog" class="quiz-opt-species py-2.5 px-3 rounded-xl text-sm font-semibold t-btn-brand border t-border-brand transition">
+                                🐕 Dog
+                            </button>
+                            <button type="button" onclick="setQuizState('species', 'cat')" id="quiz-species-cat" class="quiz-opt-species py-2.5 px-3 rounded-xl text-sm font-semibold t-surface t-text-secondary border t-border hover:t-border-brand transition">
+                                🐈 Cat
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Life Stage -->
+                    <div class="t-page p-4 rounded-2xl border t-border">
+                        <label for="quiz-stage" class="block text-xs font-bold uppercase tracking-wider t-text-brand mb-2">2. Life Stage</label>
+                        <select id="quiz-stage" onchange="setQuizState('stage', this.value)" class="w-full py-2.5 px-3 rounded-xl t-surface border t-border text-sm font-medium t-text-primary focus:outline-none">
+                            <option value="puppy">Puppy / Kitten (0–6 Months)</option>
+                            <option value="adult" selected>Adult (1–7 Years)</option>
+                            <option value="sterilized">Sterilized / Indoor</option>
+                            <option value="senior">Senior / Active Performance</option>
+                        </select>
+                    </div>
+
+                    <!-- Step 3: Sensitivity / Goal -->
+                    <div class="t-page p-4 rounded-2xl border t-border">
+                        <label for="quiz-need" class="block text-xs font-bold uppercase tracking-wider t-text-brand mb-2">3. Primary Focus / Sensitivity</label>
+                        <select id="quiz-need" onchange="setQuizState('need', this.value)" class="w-full py-2.5 px-3 rounded-xl t-surface border t-border text-sm font-medium t-text-primary focus:outline-none">
+                            <option value="stomach">Sensitive Stomach &amp; Digestion</option>
+                            <option value="grain">Grain Intolerance (Grain-Free)</option>
+                            <option value="protein">Novel Protein / Food Allergy</option>
+                            <option value="coat">Coat Shine, Skin &amp; Omega Boost</option>
+                            <option value="joints">Senior Joint &amp; Muscle Support</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Dynamic Recommendation Result Card -->
+                <div id="quiz-result" class="t-hero-gradient rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border t-border-accent">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Brand Story + B2B Partner Section -->
+    <section id="philosophy" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] t-text-accent">The Nekmar Standard</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold t-text-primary leading-tight">
+                    Where Modern Nutritional Science Meets Wild Botanicals.
+                </h2>
+                <p class="t-text-muted text-sm sm:text-base leading-relaxed">
+                    Every Nekmar recipe is crafted in state-of-the-art European facilities using <strong class="t-text-primary font-semibold">gentle steam cooking and double-screw extrusion</strong>. Unlike high-heat industrial processing that destroys delicate amino acids, our low-temperature thermal process locks in natural flavor and bioavailability.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl t-muted border t-border">
+                        <h3 class="font-serif text-lg font-bold t-text-primary">Medicinal Herb Infusion</h3>
+                        <p class="text-xs t-text-muted mt-1 leading-relaxed">
+                            Enriched with Milk Thistle for liver detox, Rosehip for natural Vitamin C, and Chamomile for calm digestion.
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-2xl t-muted border t-border">
+                        <h3 class="font-serif text-lg font-bold t-text-primary">Zero Artificial Fillers</h3>
+                        <p class="text-xs t-text-muted mt-1 leading-relaxed">
+                            Strictly free from wheat, soy, corn, BHA/BHT preservatives, artificial colors, and meat by-products.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B2B / Breeder & Vet Partner Card -->
+            <div class="lg:col-span-6">
+                <div class="t-hero rounded-3xl p-8 sm:p-10 border t-border-accent shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-40 h-40 opacity-15 rounded-full blur-2xl" style="background-color: var(--accent-secondary);"></div>
+                    <span class="inline-block px-3 py-1 rounded-full t-hero-elevated t-text-gold text-xs font-bold uppercase tracking-wider mb-3 border t-border-accent">
+                        Official Distribution &amp; Trade
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold t-text-inverse">
+                        Partner With Nekmar Nutrition
+                    </h3>
+                    <p class="t-text-inverse-muted text-sm sm:text-base mt-3 leading-relaxed">
+                        Are you a veterinary clinic, registered kennel breeder, groomer, or specialty pet boutique? Join our official partner network for wholesale tier pricing, breeder starter kits, and dedicated territory support.
+                    </p>
+
+                    <ul class="space-y-2.5 text-sm t-text-inverse mt-5 mb-7">
+                        <li class="flex items-center gap-2.5">
+                            <span class="t-text-gold font-bold">&bull;</span> Exclusive Breeder 12kg &amp; 20kg Bulk Programs
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="t-text-gold font-bold">&bull;</span> Veterinary Clinical Nutrition Samples &amp; POS Displays
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="t-text-gold font-bold">&bull;</span> Fast EU Pallet &amp; Parcel Fulfillment
+                        </li>
+                    </ul>
+
+                    <button onclick="openPartnerModal()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl t-btn-gold font-bold text-sm transition shadow-md">
+                        Apply for Partner / Wholesale Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="t-hero t-text-inverse-muted border-t t-border-accent transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Col 1 -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-lg t-hero-elevated border t-border-accent flex items-center justify-center t-text-gold font-serif font-bold">N</div>
+                        <span class="font-serif text-2xl font-bold t-text-inverse tracking-wider">NEKMAR</span>
+                    </div>
+                    <p class="text-xs t-text-inverse-muted leading-relaxed">
+                        Official Authorized Distribution Storefront for Nekmar Ultrapremium Pet Nutrition. Holistic recipes crafted in Europe under strict FEDIAF &amp; ISO 22000 quality standards.
+                    </p>
+                    <p class="font-serif italic t-text-gold text-base">"Healthy is Happy"</p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest t-text-gold mb-4">Nutrition Range</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><button onclick="navigateAndFilter('dog-low-grain')" class="hover:t-text-inverse transition">Dog Low Grain Formulas</button></li>
+                        <li><button onclick="navigateAndFilter('dog-grain-free')" class="hover:t-text-inverse transition">Dog Grain Free Formulas</button></li>
+                        <li><button onclick="navigateAndFilter('cat')" class="hover:t-text-inverse transition">Feline Ultrapremium</button></li>
+                        <li><button onclick="navigateAndFilter('supplements')" class="hover:t-text-inverse transition">Salmon Oil &amp; Muscle DPR</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest t-text-gold mb-4">EU Shipping &amp; Compliance</h4>
+                    <ul class="space-y-2.5 text-xs t-text-inverse-muted leading-relaxed">
+                        <li>&bull; 100% Traceable European Ingredients</li>
+                        <li>&bull; FEDIAF Nutritional Guidelines Compliant</li>
+                        <li>&bull; 24–48h Dispatch across EU Member States</li>
+                        <li>&bull; Free Express Delivery on orders &ge; €65.00</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest t-text-gold mb-4">Partner Desk &amp; Support</h4>
+                    <ul class="space-y-2.5 text-xs t-text-inverse-muted">
+                        <li>Email: <span class="t-text-inverse font-medium">orders@nekmar-partner.eu</span></li>
+                        <li>Wholesale: <span class="t-text-inverse font-medium">b2b@nekmar-partner.eu</span></li>
+                        <li>Hours: Mon–Fri, 09:00 – 18:00 CET</li>
+                        <li class="pt-2">
+                            <button onclick="openPartnerModal()" class="t-text-gold hover:underline font-semibold">Open B2B Inquiry Form &rarr;</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6 border-t t-border-accent flex flex-col sm:flex-row justify-between items-center gap-4 text-xs t-text-inverse-muted">
+                <p>&copy; 2026 Nekmar Official Distribution Partner. All rights reserved.</p>
+                <p>Prices include EU VAT &bull; Secure Partner Checkout</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- SLIDE-OVER SHOPPING CART DRAWER            -->
+    <!-- ========================================== -->
+    <div id="cart-overlay" onclick="toggleCart(false)" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md t-page z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cart Header -->
+        <div class="px-6 py-5 t-hero flex items-center justify-between border-b t-border-accent">
+            <div class="flex items-center gap-2.5">
+                <svg class="w-5 h-5 t-text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <h3 class="font-serif text-xl font-bold">Your Nutrition Cart</h3>
+            </div>
+            <button onclick="toggleCart(false)" aria-label="Close Cart" class="p-1.5 rounded-lg t-text-inverse-muted hover:t-text-inverse t-hero-hover">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Free Shipping Progress Bar -->
+        <div class="px-6 py-3 t-muted border-b t-border">
+            <p id="shipping-msg" class="text-xs font-medium t-text-primary mb-1.5">Add €65.00 for Free EU Express Shipping</p>
+            <div class="w-full h-2 t-subtle rounded-full overflow-hidden">
+                <div id="shipping-bar" class="h-full t-badge-brand transition-all duration-300" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Cart Body (Items or Checkout Form) -->
+        <div id="cart-body" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Dynamically rendered -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div id="cart-footer" class="p-6 t-surface border-t t-border space-y-4">
+            <div class="space-y-1.5 text-sm">
+                <div class="flex justify-between t-text-muted">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal" class="font-semibold t-text-primary">€0.00</span>
+                </div>
+                <div class="flex justify-between t-text-muted">
+                    <span>EU Express Delivery</span>
+                    <span id="cart-shipping" class="font-semibold t-text-brand">€5.90</span>
+                </div>
+                <div class="flex justify-between text-base font-bold t-text-primary pt-2 border-t t-border">
+                    <span>Total (incl. VAT)</span>
+                    <span id="cart-total" class="font-serif text-xl">€0.00</span>
+                </div>
+            </div>
+
+            <button id="checkout-btn" onclick="startCheckout()" class="w-full py-3.5 rounded-xl t-btn-brand disabled:opacity-40 disabled:cursor-not-allowed font-bold text-sm tracking-wide transition shadow-md">
+                Proceed to Partner Checkout
+            </button>
+        </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- PRODUCT QUICK-VIEW MODAL                   -->
+    <!-- ========================================== -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+        <div class="t-page rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border t-border animate-fadeIn">
+            <div id="quickview-content">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- B2B / PARTNER INQUIRY MODAL                -->
+    <!-- ========================================== -->
+    <div id="partner-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+        <div class="t-page rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border t-border relative">
+            <button onclick="closePartnerModal()" aria-label="Close Partner Modal" class="absolute top-5 right-5 p-2 rounded-full t-muted hover:t-subtle t-text-secondary">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <span class="text-xs font-bold uppercase tracking-widest t-text-accent">Nekmar Distribution Network</span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold t-text-primary mt-1">B2B, Breeder &amp; Vet Partnership</h3>
+            <p class="text-xs sm:text-sm t-text-muted mt-2 mb-5">
+                Register your business or kennel to access wholesale price lists, breeder discounts, and direct supply.
+            </p>
+
+            <form id="partner-form" onsubmit="submitPartnerInquiry(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold t-text-primary mb-1">Business / Kennel / Clinic Name *</label>
+                    <input type="text" required placeholder="e.g., Alpine Grooming & Pet Boutique" class="w-full px-3.5 py-2.5 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold t-text-primary mb-1">Partner Category *</label>
+                        <select class="w-full px-3.5 py-2.5 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none">
+                            <option>Pet Retail Store</option>
+                            <option>Registered Dog/Cat Breeder</option>
+                            <option>Veterinary Clinic</option>
+                            <option>Regional Sub-Distributor</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold t-text-primary mb-1">EU VAT / Reg. Number</label>
+                        <input type="text" placeholder="Optional" class="w-full px-3.5 py-2.5 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold t-text-primary mb-1">Contact Email *</label>
+                    <input type="email" required placeholder="partner@company.eu" class="w-full px-3.5 py-2.5 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold t-text-primary mb-1">Estimated Monthly Volume &amp; Notes</label>
+                    <textarea rows="2" placeholder="Tell us about your market or breed focus..." class="w-full px-3.5 py-2 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl t-btn-brand font-bold text-sm transition shadow-md">
+                    Submit Partner Application
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TOAST NOTIFICATION BANNER                  -->
+    <!-- ========================================== -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 t-hero px-5 py-3.5 rounded-2xl shadow-xl border t-border-accent flex items-center gap-3 max-w-sm">
+        <span class="w-6 h-6 rounded-full t-badge-gold flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+        <p id="toast-text" class="text-xs sm:text-sm font-medium"></p>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT APPLICATION LOGIC               -->
+    <!-- ========================================== -->
+    <script>
+        // 1. PRODUCT CATALOG DATA
+        const products = [
+            {
+                id: 'puppy-baby',
+                name: 'Nekmar Low Grain Puppy & Baby',
+                subtitle: '0–6 Months Growth Formula',
+                category: 'dog-low-grain',
+                badge: '65% Animal Ingredients',
+                accentColor: '#244A36',
+                sizes: [
+                    { label: '2kg', price: 20.00 },
+                    { label: '12kg', price: 70.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: 'Fresh Deboned Chicken & Pork (38% Fresh, 65% Total Animal)',
+                herbs: ['Milk Thistle', 'Rosehip', 'Chamomile', 'Dandelion Root'],
+                benefits: [
+                    'Optimal calcium-to-phosphorus ratio for skeletal & joint development',
+                    'DHA & EPA from wild salmon oil for cognitive and visual acuity',
+                    'Prebiotic FOS/MOS & chamomile for delicate puppy digestion'
+                ],
+                description: 'Gentle low-grain starter formula enriched with ancestral oats and barley for steady energy release without glycemic spikes.'
+            },
+            {
+                id: 'adult-small-med',
+                name: 'Nekmar Low Grain Adult Small & Medium',
+                subtitle: 'Daily Vitality & Coat Brilliance',
+                category: 'dog-low-grain',
+                badge: '60% Animal Ingredients',
+                accentColor: '#1B3B2B',
+                sizes: [
+                    { label: '2kg', price: 18.00 },
+                    { label: '12kg', price: 65.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: 'Fresh Deboned Chicken & Turkey (35% Fresh, 60% Total Animal)',
+                herbs: ['Rosemary', 'Nettle Leaf', 'Yucca Schidigera', 'Marigold'],
+                benefits: [
+                    'Tailored kibble size for small and medium breed jaw ergonomics',
+                    'Yucca extract naturally reduces stool odor and supports gut flora',
+                    'Omega-3 & Omega-6 fatty acids for dense, glossy coat'
+                ],
+                description: 'Balanced everyday holistic nutrition crafted with fresh poultry, ancient low-glycemic grains, and wild European herbs.'
+            },
+            {
+                id: 'gf-rabbit-iberico',
+                name: 'Nekmar Grain Free Adult Rabbit & Iberico',
+                subtitle: '0% Grain Gourmet Holistic Recipe',
+                category: 'dog-grain-free',
+                badge: '70% Animal Ingredients',
+                accentColor: '#8B4513',
+                sizes: [
+                    { label: '2kg', price: 24.00 },
+                    { label: '12kg', price: 78.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: 'Fresh Iberian Pork & Deboned Rabbit (42% Fresh, 70% Total Animal)',
+                herbs: ['Wild Oregano', 'Milk Thistle', 'Cranberry', 'Chicory Root'],
+                benefits: [
+                    '100% Grain-Free & Potato-Free ideal for grain-sensitive dogs',
+                    'Ultra-palatable Iberian pork & lean rabbit proteins',
+                    'Natural chondroitin & glucosamine for active adult mobility'
+                ],
+                description: 'Our flagship grain-free culinary masterpiece combining noble Iberian pork and wild rabbit with antioxidant-rich forest berries and herbs.'
+            },
+            {
+                id: 'mono-horse',
+                name: 'Nekmar Low Grain Monoprotein Vitality',
+                subtitle: 'Single-Source Fresh Horse Meat',
+                category: 'dog-low-grain',
+                badge: 'Single Animal Protein',
+                accentColor: '#5C3A21',
+                sizes: [
+                    { label: '2kg', price: 22.00 },
+                    { label: '12kg', price: 74.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: '100% Single-Source Fresh Horse Meat (62% Total Animal)',
+                herbs: ['Burdock Root', 'Dandelion', 'Turmeric', 'Sea Kelp'],
+                benefits: [
+                    'True single animal protein eliminates cross-reactive food allergies',
+                    'Naturally rich in bioavailable iron and B-vitamins for stamina',
+                    'Soothing botanicals calm skin itching and digestive inflammation'
+                ],
+                description: 'Veterinarian-favored elimination and hypoallergenic diet utilizing lean, novel fresh horse meat as the sole animal protein source.'
+            },
+            {
+                id: 'cat-gf-sterilized',
+                name: 'Nekmar Cat Grain Free Sterilized',
+                subtitle: 'Urinary & Weight Control Holistic',
+                category: 'cat',
+                badge: '70% Animal Ingredients',
+                accentColor: '#2E4A3E',
+                sizes: [
+                    { label: '2kg', price: 17.00 },
+                    { label: '12kg', price: 70.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: 'Fresh Deboned Turkey & Salmon (44% Fresh, 70% Total Animal)',
+                herbs: ['Cranberry', 'Nettle', 'Catnip Leaf', 'Yucca Schidigera'],
+                benefits: [
+                    'Controlled magnesium & DL-methionine for optimal urinary tract pH',
+                    'L-Carnitine supports lean muscle maintenance after sterilization',
+                    'Natural cellulose fibers prevent hairball formation'
+                ],
+                description: 'High-meat grain-free feline formula calibrated for the metabolic and urinary needs of indoor and sterilized cats.'
+            },
+            {
+                id: 'cat-lg-lamb',
+                name: 'Nekmar Cat Low Grain Sensible Lamb',
+                subtitle: 'Delicate Digestion & Hairball Care',
+                category: 'cat',
+                badge: '65% Animal Ingredients',
+                accentColor: '#4A3B32',
+                sizes: [
+                    { label: '2kg', price: 17.00 },
+                    { label: '12kg', price: 68.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: 'Fresh Deboned Pasture Lamb (38% Fresh, 65% Total Animal)',
+                herbs: ['Chamomile', 'Fennel Seed', 'Rosehip', 'Taurine Rich'],
+                benefits: [
+                    'Gentle pasture-raised lamb ideal for sensitive feline stomachs',
+                    'Enriched with essential Taurine for heart and retinal health',
+                    'Prebiotic chicory & fennel minimize digestive upset'
+                ],
+                description: 'Soothing, highly digestible feline kibble combining fresh lamb with calming Mediterranean herbs.'
+            },
+            {
+                id: 'salmon-oil',
+                name: 'Nekmar Pure Salmon Oil',
+                subtitle: 'Cold-Pressed Norwegian Omega 3-6-9',
+                category: 'supplements',
+                badge: '100% Pure Cold-Pressed',
+                accentColor: '#C57B3E',
+                sizes: [
+                    { label: '250ml', price: 13.00 },
+                    { label: '1000ml', price: 35.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: '100% Cold-Pressed Wild Norwegian Salmon Oil',
+                herbs: ['Natural Tocopherols (Vitamin E Antioxidant)'],
+                benefits: [
+                    'Stops excessive shedding, dry flaky skin, and dull coat within 3 weeks',
+                    'High EPA & DHA concentration supports cardiovascular & joint health',
+                    'Irresistible natural aroma enhances kibble palatability for picky eaters'
+                ],
+                description: 'Unrefined, cold-pressed Norwegian salmon oil bottled in UV-protective containers to preserve delicate essential fatty acids.'
+            },
+            {
+                id: 'muscle-dpr',
+                name: 'Nekmar Muscle DPR Supplement',
+                subtitle: 'Joint, Tendon & Performance Recovery',
+                category: 'supplements',
+                badge: 'Clinical Grade Formula',
+                accentColor: '#12291E',
+                sizes: [
+                    { label: '250g', price: 18.00 },
+                    { label: '1000g', price: 55.00 }
+                ],
+                selectedSizeIdx: 0,
+                freshMeat: 'Hydrolyzed Marine Collagen, Green-Lipped Mussel & Egg Membrane',
+                herbs: ['Devil’s Claw', 'Boswellia Serrata', 'Rosehip Extract'],
+                benefits: [
+                    'Accelerates muscle recovery and protects cartilage in working & senior pets',
+                    'Synergistic Glucosamine, Chondroitin, MSM & Hyaluronic Acid',
+                    'Natural herbal anti-inflammatories without gastric side effects'
+                ],
+                description: 'Advanced nutraceutical powder engineered for senior joint stiffness, post-operative rehabilitation, and athletic conditioning.'
+            }
+        ];
+
+        // 2. APPLICATION STATE
+        let currentFilter = 'all';
+        let currentTheme = 'midnight-emerald';
+        let cart = []; // { id, name, sizeLabel, price, qty }
+        let quizState = {
+            species: 'dog',
+            stage: 'adult',
+            need: 'stomach'
+        };
+
+        // Theme Switcher Controller
+        function setTheme(themeKey) {
+            const validThemes = ['midnight-emerald', 'botanical-sage', 'terracotta-espresso'];
+            currentTheme = validThemes.includes(themeKey) ? themeKey : 'midnight-emerald';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            try {
+                localStorage.setItem('nekmar_theme', currentTheme);
+            } catch (err) {
+                // Ignore storage restrictions
+            }
+
+            syncThemeButtons();
+        }
+
+        function syncThemeButtons() {
+            document.querySelectorAll('.theme-switcher-btn').forEach(btn => {
+                const isActive = btn.dataset.themeChoice === currentTheme;
+                btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                if (isActive) {
+                    btn.className = 'theme-switcher-btn px-2.5 py-1 rounded-full text-[11px] font-semibold border t-border-accent t-btn-gold transition inline-flex items-center gap-1.5 shadow-2xs';
+                } else {
+                    btn.className = 'theme-switcher-btn px-2.5 py-1 rounded-full text-[11px] font-semibold border t-border-accent t-hero-elevated t-text-inverse-muted hover:t-text-inverse transition inline-flex items-center gap-1.5';
+                }
+            });
+        }
+
+        // 3. RENDER PRODUCT CATALOG
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const filtered = products.filter(p => {
+                if (currentFilter === 'all') return true;
+                if (currentFilter === 'dog-all') return p.category.startsWith('dog');
+                return p.category === currentFilter;
+            });
+
+            grid.innerHTML = filtered.map(product => {
+                const activeSize = product.sizes[product.selectedSizeIdx];
+                return `
+                <article class="t-surface rounded-2xl border t-border overflow-hidden flex flex-col justify-between bag-card-shadow transition-all duration-300 group">
+                    <div>
+                        <!-- Top Visual Packaging Header -->
+                        <div onclick="openQuickView('${product.id}')" class="cursor-pointer relative p-5 t-muted border-b t-border">
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="inline-block px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide t-badge-brand">
+                                    ${product.badge}
+                                </span>
+                                <button type="button" aria-label="Quick view ${product.name}" class="w-8 h-8 rounded-full t-surface t-text-primary flex items-center justify-center shadow-2xs group-hover:t-btn-gold transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Stylized Luxury Bag Silhouette -->
+                            <div class="mt-4 mb-1 mx-auto w-32 h-36 rounded-xl shadow-md flex flex-col justify-between p-3 t-text-inverse relative overflow-hidden transform group-hover:scale-105 transition-transform duration-300" style="background-color: ${product.accentColor};">
+                                <div class="border-b t-border-accent pb-1.5">
+                                    <span class="text-[9px] tracking-[0.2em] uppercase t-text-gold font-bold block">NEKMAR</span>
+                                    <span class="font-serif text-xs font-bold leading-tight block line-clamp-2 mt-0.5">${product.name.replace('Nekmar ', '')}</span>
+                                </div>
+                                <div class="flex items-end justify-between">
+                                    <span class="text-[9px] t-text-inverse-muted uppercase tracking-wider">Holistic</span>
+                                    <span class="px-1.5 py-0.5 rounded t-badge-gold font-bold text-[10px]">${activeSize.label}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Content -->
+                        <div class="p-5">
+                            <p class="text-[11px] font-semibold uppercase tracking-wider t-text-accent">${product.subtitle}</p>
+                            <h3 onclick="openQuickView('${product.id}')" class="cursor-pointer font-serif text-xl font-bold t-text-primary mt-1 hover:t-text-accent transition leading-snug">
+                                ${product.name}
+                            </h3>
+                            <p class="text-xs t-text-muted mt-2 line-clamp-2 leading-relaxed">
+                                ${product.description}
+                            </p>
+
+                            <!-- Herbal Tags -->
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                ${product.herbs.slice(0, 2).map(h => `<span class="text-[10px] px-2 py-0.5 rounded-md t-muted t-text-brand font-medium border t-border">🌿 ${h}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bag Size Selector & Add to Cart Footer -->
+                    <div class="px-5 pb-5 pt-2 space-y-3">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-wider t-text-muted font-semibold mb-1.5">Select Pack Size:</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                ${product.sizes.map((s, idx) => `
+                                    <button type="button" onclick="selectProductSize('${product.id}', ${idx})"
+                                        class="py-1.5 px-2.5 rounded-lg text-xs font-bold border transition ${idx === product.selectedSizeIdx
+                                            ? 't-btn-brand t-border-brand shadow-2xs'
+                                            : 't-page t-text-secondary t-border hover:t-border-brand'}">
+                                        ${s.label} &bull; €${s.price.toFixed(0)}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="pt-2 border-t t-border flex items-center justify-between gap-3">
+                            <div>
+                                <span class="text-[10px] t-text-muted block">Partner Price</span>
+                                <span class="font-serif text-2xl font-bold t-text-primary">€${activeSize.price.toFixed(2)}</span>
+                            </div>
+                            <button type="button" onclick="addToCart('${product.id}')" class="flex-1 py-2.5 px-4 rounded-xl t-btn-gold font-bold text-xs tracking-wide transition shadow-2xs flex items-center justify-center gap-1.5">
+                                <span>+ Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                `;
+            }).join('');
+        }
+
+        function selectProductSize(productId, sizeIdx) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                product.selectedSizeIdx = sizeIdx;
+                renderProducts();
+            }
+        }
+
+        function filterProducts(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                const isMatch = btn.dataset.filter === category;
+                btn.className = isMatch
+                    ? 'filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold t-btn-brand transition shadow-sm'
+                    : 'filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold t-muted t-text-secondary hover:t-subtle transition';
+            });
+            renderProducts();
+        }
+
+        function navigateAndFilter(category) {
+            filterProducts(category);
+            document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 4. QUICK-VIEW MODAL LOGIC
+        function openQuickView(productId) {
+            const p = products.find(item => item.id === productId);
+            if (!p) return;
+
+            const activeSize = p.sizes[p.selectedSizeIdx];
+            const modal = document.getElementById('quickview-modal');
+            const content = document.getElementById('quickview-content');
+
+            content.innerHTML = `
+                <div class="relative p-6 sm:p-8">
+                    <button onclick="closeQuickView()" aria-label="Close modal" class="absolute top-5 right-5 p-2 rounded-full t-muted hover:t-subtle t-text-secondary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                        <span class="px-3 py-1 rounded-full t-badge-brand text-xs font-bold">${p.badge}</span>
+                        <span class="text-xs font-semibold t-text-accent uppercase tracking-wider">${p.subtitle}</span>
+                    </div>
+
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold t-text-primary">${p.name}</h3>
+                    <p class="text-sm t-text-muted mt-2 leading-relaxed">${p.description}</p>
+
+                    <div class="mt-5 p-4 rounded-2xl t-muted border t-border space-y-3">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider t-text-brand block">Primary Animal Protein</span>
+                            <p class="text-sm font-semibold t-text-primary mt-0.5">${p.freshMeat}</p>
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider t-text-brand block">Medicinal Herb Complex</span>
+                            <div class="flex flex-wrap gap-1.5 mt-1">
+                                ${p.herbs.map(h => `<span class="px-2.5 py-1 rounded-lg t-surface t-text-primary text-xs font-medium border t-border">🌿 ${h}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <span class="text-xs font-bold uppercase tracking-wider t-text-brand block mb-2">Key Nutritional Benefits</span>
+                        <ul class="space-y-1.5 text-xs sm:text-sm t-text-secondary">
+                            ${p.benefits.map(b => `<li class="flex items-start gap-2"><span class="t-text-accent font-bold">✓</span><span>${b}</span></li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="mt-6 pt-5 border-t t-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-2">
+                            ${p.sizes.map((s, idx) => `
+                                <button type="button" onclick="selectProductSize('${p.id}', ${idx}); openQuickView('${p.id}')"
+                                    class="px-3.5 py-2 rounded-xl text-xs font-bold border transition ${idx === p.selectedSizeIdx
+                                        ? 't-btn-brand t-border-brand'
+                                        : 't-surface t-text-secondary t-border hover:t-border-brand'}">
+                                    ${s.label} — €${s.price.toFixed(2)}
+                                </button>
+                            `).join('')}
+                        </div>
+
+                        <button type="button" onclick="addToCart('${p.id}'); closeQuickView();" class="px-6 py-3 rounded-xl t-btn-gold font-bold text-sm transition shadow-md">
+                            Add to Cart &bull; €${activeSize.price.toFixed(2)}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickview-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 5. INTERACTIVE PET NUTRITION ADVISOR
+        function setQuizState(key, value) {
+            quizState[key] = value;
+
+            if (key === 'species') {
+                document.querySelectorAll('.quiz-opt-species').forEach(btn => {
+                    btn.className = 'quiz-opt-species py-2.5 px-3 rounded-xl text-sm font-semibold t-surface t-text-secondary border t-border hover:t-border-brand transition';
+                });
+                const activeBtn = document.getElementById(`quiz-species-${value}`);
+                if (activeBtn) {
+                    activeBtn.className = 'quiz-opt-species py-2.5 px-3 rounded-xl text-sm font-semibold t-btn-brand border t-border-brand transition';
+                }
+            }
+            updateQuizRecommendation();
+        }
+
+        function updateQuizRecommendation() {
+            const { species, stage, need } = quizState;
+            let recId = 'adult-small-med';
+            let reason = 'Balanced daily nutrition with fresh poultry and soothing European herbs.';
+
+            if (need === 'coat') {
+                recId = 'salmon-oil';
+                reason = 'Cold-pressed Norwegian Salmon Oil delivers concentrated Omega-3 EPA & DHA to restore coat shine and calm dry skin.';
+            } else if (need === 'joints') {
+                recId = 'muscle-dpr';
+                reason = 'Clinical-grade Green-Lipped Mussel, Marine Collagen & Boswellia support joint lubrication and senior mobility.';
+            } else if (species === 'cat') {
+                if (stage === 'sterilized' || need === 'grain') {
+                    recId = 'cat-gf-sterilized';
+                    reason = '70% animal ingredients with cranberry & controlled minerals to safeguard urinary health and lean weight.';
+                } else {
+                    recId = 'cat-lg-lamb';
+                    reason = 'Gentle pasture-raised lamb with chamomile & fennel supports delicate feline digestion and hairball control.';
+                }
+            } else {
+                // Dog recommendations
+                if (stage === 'puppy') {
+                    recId = 'puppy-baby';
+                    reason = 'Formulated specifically for 0–6 month growth with optimal calcium/phosphorus balance and DHA for brain development.';
+                } else if (need === 'protein') {
+                    recId = 'mono-horse';
+                    reason = '100% single-source fresh horse meat eliminates common poultry/beef triggers for sensitive dogs.';
+                } else if (need === 'grain') {
+                    recId = 'gf-rabbit-iberico';
+                    reason = 'Zero grains or potatoes—crafted with 70% Iberian pork & rabbit for peak digestibility and vitality.';
+                } else {
+                    recId = 'adult-small-med';
+                    reason = 'Low-glycemic ancestral grains paired with fresh chicken, turkey, and Yucca support effortless daily digestion.';
+                }
+            }
+
+            const recProduct = products.find(p => p.id === recId);
+            const activeSize = recProduct.sizes[0];
+            const resultBox = document.getElementById('quiz-result');
+
+            resultBox.innerHTML = `
+                <div class="space-y-2 max-w-xl">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider t-text-gold">
+                        <span>★ Personalized Nekmar Match</span>
+                        <span>&bull;</span>
+                        <span>${recProduct.badge}</span>
+                    </div>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold t-text-inverse">${recProduct.name}</h3>
+                    <p class="text-xs sm:text-sm t-text-inverse-muted leading-relaxed">${reason}</p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+                    <button type="button" onclick="openQuickView('${recProduct.id}')" class="w-full sm:w-auto px-4 py-3 rounded-xl t-hero-elevated t-hero-hover t-text-inverse border t-border-accent text-xs font-semibold transition">
+                        Inspect Ingredients
+                    </button>
+                    <button type="button" onclick="addSpecificToCart('${recProduct.id}', 0)" class="w-full sm:w-auto px-6 py-3 rounded-xl t-btn-gold font-bold text-xs sm:text-sm transition shadow-lg">
+                        Add ${activeSize.label} (€${activeSize.price.toFixed(2)})
+                    </button>
+                </div>
+            `;
+        }
+
+        // 6. SHOPPING CART & CHECKOUT LOGIC
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            addSpecificToCart(productId, product.selectedSizeIdx);
+        }
+
+        function addSpecificToCart(productId, sizeIdx) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            const sizeObj = product.sizes[sizeIdx];
+            const cartKey = `${product.id}_${sizeObj.label}`;
+
+            const existing = cart.find(item => item.key === cartKey);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    key: cartKey,
+                    id: product.id,
+                    name: product.name,
+                    sizeLabel: sizeObj.label,
+                    price: sizeObj.price,
+                    qty: 1
+                });
+            }
+
+            updateCartUI();
+            showToast(`Added ${product.name} (${sizeObj.label}) to cart.`);
+        }
+
+        function updateItemQty(cartKey, delta) {
+            const idx = cart.findIndex(item => item.key === cartKey);
+            if (idx === -1) return;
+
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) {
+                cart.splice(idx, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const freeShippingThreshold = 65.00;
+            const shippingCost = subtotal === 0 ? 0 : (subtotal >= freeShippingThreshold ? 0 : 5.90);
+            const grandTotal = subtotal + shippingCost;
+
+            // Update Header Badge
+            document.getElementById('cart-badge').textContent = totalItems;
+
+            // Update Free Shipping Progress Bar
+            const progressPct = Math.min(100, (subtotal / freeShippingThreshold) * 100);
+            document.getElementById('shipping-bar').style.width = `${progressPct}%`;
+            const shippingMsg = document.getElementById('shipping-msg');
+            if (subtotal >= freeShippingThreshold) {
+                shippingMsg.innerHTML = `<span class="t-text-brand font-bold">✓ Unlocked!</span> Your order qualifies for <strong>Free EU Express Shipping</strong>.`;
+            } else {
+                const diff = (freeShippingThreshold - subtotal).toFixed(2);
+                shippingMsg.innerHTML = `Add <strong>€${diff}</strong> more to unlock <strong>Free EU Express Shipping</strong>.`;
+            }
+
+            // Update Totals
+            document.getElementById('cart-subtotal').textContent = `€${subtotal.toFixed(2)}`;
+            document.getElementById('cart-shipping').textContent = subtotal === 0 ? '€0.00' : (shippingCost === 0 ? 'FREE' : `€${shippingCost.toFixed(2)}`);
+            document.getElementById('cart-total').textContent = `€${grandTotal.toFixed(2)}`;
+
+            const checkoutBtn = document.getElementById('checkout-btn');
+            if (checkoutBtn) {
+                checkoutBtn.disabled = cart.length === 0;
+            }
+
+            // Render Cart Body
+            const cartBody = document.getElementById('cart-body');
+            const cartFooter = document.getElementById('cart-footer');
+            cartFooter.classList.remove('hidden');
+
+            if (cart.length === 0) {
+                cartBody.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12 space-y-3">
+                        <div class="w-16 h-16 rounded-full t-muted flex items-center justify-center t-text-brand">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold t-text-primary">Your cart is currently empty</h4>
+                        <p class="text-xs t-text-muted max-w-xs">Explore our fresh-meat &amp; medicinal herb formulas to give your companion holistic vitality.</p>
+                        <button onclick="toggleCart(false)" class="mt-2 px-5 py-2.5 rounded-xl t-btn-brand text-xs font-bold">Browse Formulas</button>
+                    </div>
+                `;
+                return;
+            }
+
+            cartBody.innerHTML = cart.map(item => `
+                <div class="t-surface p-4 rounded-2xl border t-border flex items-center justify-between gap-3 shadow-2xs">
+                    <div class="flex-1 min-w-0">
+                        <span class="inline-block px-2 py-0.5 rounded t-muted t-text-brand font-bold text-[10px]">${item.sizeLabel}</span>
+                        <h4 class="font-serif text-base font-bold t-text-primary truncate mt-1">${item.name}</h4>
+                        <p class="text-xs font-semibold t-text-accent mt-0.5">€${item.price.toFixed(2)} each</p>
+                    </div>
+
+                    <div class="flex items-center gap-2 t-page px-2 py-1 rounded-xl border t-border">
+                        <button onclick="updateItemQty('${item.key}', -1)" aria-label="Decrease quantity" class="w-6 h-6 rounded-lg t-surface t-text-primary font-bold text-sm hover:t-subtle transition">&minus;</button>
+                        <span class="text-xs font-bold w-5 text-center">${item.qty}</span>
+                        <button onclick="updateItemQty('${item.key}', 1)" aria-label="Increase quantity" class="w-6 h-6 rounded-lg t-surface t-text-primary font-bold text-sm hover:t-subtle transition">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function startCheckout() {
+            if (cart.length === 0) return;
+            const cartBody = document.getElementById('cart-body');
+            const cartFooter = document.getElementById('cart-footer');
+            cartFooter.classList.add('hidden');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const shippingCost = subtotal >= 65 ? 0 : 5.90;
+            const grandTotal = (subtotal + shippingCost).toFixed(2);
+
+            cartBody.innerHTML = `
+                <form onsubmit="completeSimulatedOrder(event)" class="space-y-4">
+                    <div class="flex items-center justify-between border-b t-border pb-3">
+                        <h4 class="font-serif text-xl font-bold t-text-primary">Express EU Checkout</h4>
+                        <button type="button" onclick="updateCartUI()" class="text-xs font-semibold t-text-brand hover:underline">&larr; Back to Cart</button>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold t-text-primary mb-1">Full Name *</label>
+                        <input type="text" required placeholder="Elena Rostova" class="w-full px-3.5 py-2.5 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold t-text-primary mb-1">Email for Tracking &amp; Invoice *</label>
+                        <input type="email" required placeholder="elena@example.eu" class="w-full px-3.5 py-2.5 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold t-text-primary mb-1">Delivery Address &amp; Country *</label>
+                        <input type="text" required placeholder="Street, Postal Code, City, EU Country" class="w-full px-3.5 py-2.5 rounded-xl t-surface border t-border t-text-primary text-sm focus:outline-none">
+                    </div>
+
+                    <div class="p-3.5 rounded-xl t-muted border t-border text-xs space-y-1">
+                        <div class="flex justify-between font-bold t-text-primary text-sm">
+                            <span>Order Total:</span>
+                            <span>€${grandTotal}</span>
+                        </div>
+                        <p class="t-text-muted">Dispatched within 24h from Official Nekmar Partner Hub.</p>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 rounded-xl t-btn-gold font-bold text-sm transition shadow-md">
+                        Confirm &amp; Place Order (€${grandTotal})
+                    </button>
+                </form>
+            `;
+        }
+
+        function completeSimulatedOrder(e) {
+            e.preventDefault();
+            const orderRef = 'NKM-' + Math.floor(100000 + Math.random() * 900000);
+            cart = [];
+            document.getElementById('cart-badge').textContent = '0';
+
+            const cartBody = document.getElementById('cart-body');
+            cartBody.innerHTML = `
+                <div class="text-center py-10 px-4 space-y-4">
+                    <div class="w-16 h-16 rounded-full t-badge-brand t-text-gold flex items-center justify-center mx-auto text-2xl font-bold shadow-md">
+                        ✓
+                    </div>
+                    <span class="inline-block px-3 py-1 rounded-full t-subtle t-text-primary text-xs font-bold">Order Reference: ${orderRef}</span>
+                    <h4 class="font-serif text-2xl font-bold t-text-primary">Thank You for Choosing Nekmar!</h4>
+                    <p class="text-xs sm:text-sm t-text-muted leading-relaxed">
+                        Your holistic nutrition order has been registered with our official fulfillment desk. You will receive your EU courier tracking link shortly.
+                    </p>
+                    <button onclick="updateCartUI(); toggleCart(false);" class="mt-4 px-6 py-3 rounded-xl t-btn-brand text-xs font-bold">
+                        Continue Shopping
+                    </button>
+                </div>
+            `;
+        }
+
+        function toggleCart(open) {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            if (open) {
+                overlay.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                overlay.classList.add('hidden');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        // 7. PARTNER MODAL & MOBILE MENU & TOAST HELPERS
+        function openPartnerModal() {
+            const modal = document.getElementById('partner-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closePartnerModal() {
+            const modal = document.getElementById('partner-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function submitPartnerInquiry(e) {
+            e.preventDefault();
+            e.target.reset();
+            closePartnerModal();
+            showToast('Partner inquiry received! Our B2B desk will contact you within 24 hours.');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3200);
+        }
+
+        // Initialize Storefront on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            let savedTheme = 'midnight-emerald';
+            try {
+                savedTheme = localStorage.getItem('nekmar_theme') || 'midnight-emerald';
+            } catch (err) {
+                savedTheme = 'midnight-emerald';
+            }
+            setTheme(savedTheme);
+            renderProducts();
+            updateQuizRecommendation();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
